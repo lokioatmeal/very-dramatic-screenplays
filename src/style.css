@@ -1,0 +1,52 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Screenplay-specific styles */
+.screenplay-content {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12pt;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f8f9fa;
+  color: #212529;
+  padding: 2rem;
+  border-radius: 4px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .screenplay-content {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+}
+
+/* Override Bootstrap defaults for better spacing */
+.card {
+  border: none;
+}
+
+.form-label {
+  font-weight: 500;
+}
+

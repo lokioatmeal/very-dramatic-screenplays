@@ -1,0 +1,53 @@
+/**
+ * API Client for Frontend
+ * 
+ * Handles communication between the UI and the Vercel API endpoint.
+ */
+
+export interface ScreenplayInput {
+  protagonistName: string;
+  setting: string;
+  season: string;
+  romanticInterest: string;
+  adultThemed: boolean;
+}
+
+export interface ScreenplayOutput {
+  title: string;
+  content: string;
+}
+
+/**
+ * Calls the backend API to generate a screenplay
+ * 
+ * Falls back to mock generator if API is unavailable (for development)
+ */
+export async function generateScreenplay(input: ScreenplayInput): Promise<ScreenplayOutput> {
+  try {
+    // Determine API endpoint
+    // In production, use Vercel domain; in dev, use localhost
+    const apiUrl =
+      process.env.NODE_ENV === 'production'
+        ? `${window.location.origin}/api/generate`
+        : 'http://localhost:3001/api/generate';
+
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(input),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.error || 'Failed to generate screenplay');
+    }
+
+    const screenplay: ScreenplayOutput = await response.json();
+    return screenplay;
+  } catch (error) {
+    console.error('API Error:', error);
+    throw error;
+  }
+}
