@@ -63,22 +63,18 @@ Keep it light, wholesome, and charming.`;
 
 Format: Standard screenplay format. Make it engaging but brief.`;
 
-    // Call OpenAI API
-    const message = await openai.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 2000,
+    // Call OpenAI Chat Completions API
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      max_tokens: 1200,
+      temperature: 0.8,
       messages: [
-        {
-          role: 'user',
-          content: userPrompt,
-        },
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: userPrompt },
       ],
-      system: systemPrompt,
     });
 
-    // Extract the screenplay content
-    const screenplay =
-      message.content[0].type === 'text' ? message.content[0].text : 'Failed to generate screenplay';
+    const screenplay = completion.choices[0]?.message?.content ?? 'Failed to generate screenplay';
 
     return res.status(200).json({
       title: `${input.season} in ${input.setting}`.toUpperCase(),

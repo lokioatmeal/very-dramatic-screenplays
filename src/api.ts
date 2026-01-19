@@ -25,11 +25,11 @@ export interface ScreenplayOutput {
 export async function generateScreenplay(input: ScreenplayInput): Promise<ScreenplayOutput> {
   try {
     // Determine API endpoint
-    // In production, use Vercel domain; in dev, use localhost
-    const apiUrl =
-      process.env.NODE_ENV === 'production'
-        ? `${window.location.origin}/api/generate`
-        : 'http://localhost:3001/api/generate';
+    const apiBase =
+      import.meta.env.VITE_API_BASE ??
+      (window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'https://very-dramatic-screenplays.vercel.app');
+
+    const apiUrl = `${apiBase}/api/generate`;
 
     const response = await fetch(apiUrl, {
       method: 'POST',
