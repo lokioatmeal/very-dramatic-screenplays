@@ -25,9 +25,7 @@ export interface ScreenplayOutput {
 export async function generateScreenplay(input: ScreenplayInput): Promise<ScreenplayOutput> {
   try {
     // Determine API endpoint
-    const apiBase =
-      import.meta.env.VITE_API_BASE ??
-      (window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'https://very-dramatic-screenplays.vercel.app');
+    const apiBase = import.meta.env.VITE_API_BASE ?? 'https://very-dramatic-screenplays.vercel.app';
 
     const apiUrl = `${apiBase}/api/generate`;
 
@@ -40,8 +38,16 @@ export async function generateScreenplay(input: ScreenplayInput): Promise<Screen
     });
 
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.error || 'Failed to generate screenplay');
+      // Try to parse JSON error; fall back to text
+      let message = 'Failed to generate story';
+      try {
+        const error = await response.json();
+        message = error.error || message;
+      } catch (err) {
+        const text = await response.text();
+        message = text || message;
+      }
+      throw new Error(message);
     }
 
     const screenplay: ScreenplayOutput = await response.json();

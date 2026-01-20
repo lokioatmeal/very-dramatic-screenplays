@@ -1,52 +1,24 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
+[data-bs-theme=dark] {
+  --bs-body-color: var(--bs-warning);
+  --bs-body-bg: var(--bs-black);
+}
+
+h1 {
+  margin-left: -0.5rem;
+  font-family: "Bowlby One SC", sans-serif;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 7.25cqw;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-/* Screenplay-specific styles */
-.screenplay-content {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 12pt;
-  line-height: 1.5;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  background-color: #f8f9fa;
-  color: #212529;
-  padding: 2rem;
-  border-radius: 4px;
-  max-height: 600px;
-  overflow-y: auto;
-}
-
-@media (prefers-color-scheme: dark) {
-  .screenplay-content {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+@media (max-width: 575.98px) {
+  .btn-group.btn-group-sm-downstack {
+    flex-direction: column;
+    .btn { border-radius: 0; }
+    .btn:first-of-type { border-top-left-radius: var(--bs-border-radius); border-top-right-radius: var(--bs-border-radius); }
+    .btn:last-of-type { border-bottom-left-radius: var(--bs-border-radius); border-bottom-right-radius: var(--bs-border-radius); }
+    .btn:not(:first-child) { margin-left: 0; }
   }
 }
-
-/* Override Bootstrap defaults for better spacing */
-.card {
-  border: none;
-}
-
-.form-label {
-  font-weight: 500;
-}
-
