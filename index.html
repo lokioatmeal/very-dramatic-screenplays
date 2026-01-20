@@ -3,65 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Rom-Cominatooorrrr</title>
+    <title>Thee Rom-Cominatooorrrr</title>
     <script type="module" crossorigin src="/very-dramatic-screenplays/assets/index-owTG_6y4.js"></script>
     <link rel="stylesheet" crossorigin href="/very-dramatic-screenplays/assets/index-jSMwbDr7.css">
   </head>
 
-<body>
+<body data-bs-theme="dark">
 
-<main class="container-sm py-5" id="app">
+<main class="p-3 px-md-5 mb-5" id="app">
 
-  <header class="text-center mb-5">
-    <h1 class="display-4 mb-3">🎬 Screenplay Generator</h1>
-    <p class="lead text-muted">Create your own Hallmark-style romantic comedy</p>
-  </header>
+  <h1 class="lh-1 mb-3"><span class="fs-1 ms-3">Thee</span> <span class="text-nowrap">Rom-Cominatooorrrr</span></h1>
 
-  <div class="d-flex flex-column gap-3">
-    <h2>Story Settings</h2>
+  <div class="d-flex flex-column flex-md-row gap-3 gap-md-5">
 
-    <form id="storyForm">
+    <div class="d-flex flex-column w-100 py-3">
 
-      <div>
-        <label for="protagonistName" class="form-label">Protagonist Name</label>
-        <p class="form-text">E.g., Emma, Jack, Kickass Blaster, etc.</p>
-        <input type="text" class="form-control" id="protagonistName" required />
-      </div>
+      <h2>Input</h2>
 
-      <div>
-        <label for="setting" class="form-label">Small Town Setting</label>
-        <p class="form-text">E.g., Maplewood, Pinecrest, etc.</p>
-        <input type="text" class="form-control" id="setting" required />
-      </div>
+      <p class="small fst-italic mb-4">All fields required.</p>
 
-      <div>
-        <label for="season" class="form-label">Season/Time Period</label>
-        <select id="season" class="form-select" required>
-          <option value="">Choose...</option>
-          <option value="Christmas">Christmas</option>
-          <option value="Summer">Summer</option>
-          <option value="Fall">Fall</option>
-          <option value="Spring">Spring</option>
-          <option value="Winter">Winter</option>
-        </select>
-      </div>
+      <form class="d-flex flex-column gap-3" id="storyForm">
 
-      <div>
-        <label for="romanticInterest" class="form-label">Romantic Interest Name</label>
-        <p class="form-text">E.g., Noah, Sophie, Mr. Rubber Burner, etc.</p>
-        <input type="text" class="form-control" id="romanticInterest" required />
-      </div>
+        <div>
+          <label class="form-label fw-semibold m-0" for="protagonistName">Protagonist Name</label>
+          <p class="form-text fst-italic m-0">E.g., Emma, Jack, Kickass Blaster, etc.</p>
+          <input type="text" class="form-control" id="protagonistName" required />
+        </div>
 
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="adultThemed" />
-        <label class="form-check-label" for="adultThemed">Add Spice</label>
-      </div>
+        <div>
+          <label class="form-label fw-semibold m-0" for="setting">Setting</label>
+          <p class="form-text fst-italic m-0">E.g., Maplewood, New York, Beach Town, etc.</p>
+          <input type="text" class="form-control" id="setting" required />
+        </div>
 
-      <button type="submit" class="btn btn-primary w-100">Rom-Cominatate</button>
+        <div>
+          <label class="form-label fw-semibold m-0" for="townSize">Town/Setting Size</label>
+          <select id="townSize" class="form-select">
+            <option value="small">Small Town</option>
+            <option value="medium">Medium City</option>
+            <option value="large">Large Metropolis</option>
+          </select>
+        </div>
 
-    </form>
+        <div>
+          <label class="form-label fw-semibold m-0">Season</label>
+          <div class="btn-group btn-group-sm-downstack w-100" role="group">
+            <input type="radio" class="btn-check" name="season" id="seasonRandom" value="randomize" checked />
+            <label class="btn btn-outline-warning" for="seasonRandom">Randomize</label>
+            <input type="radio" class="btn-check" name="season" id="seasonSpring" value="Spring" />
+            <label class="btn btn-outline-warning" for="seasonSpring">Spring</label>
+            <input type="radio" class="btn-check" name="season" id="seasonSummer" value="Summer" />
+            <label class="btn btn-outline-warning" for="seasonSummer">Summer</label>
+            <input type="radio" class="btn-check" name="season" id="seasonFall" value="Fall" />
+            <label class="btn btn-outline-warning" for="seasonFall">Fall</label>
+            <input type="radio" class="btn-check" name="season" id="seasonWinter" value="Winter" />
+            <label class="btn btn-outline-warning" for="seasonWinter">Winter</label>
+          </div>
+        </div>
 
-    <div id="output"></div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold m-0" for="romanticInterest">Romantic Interest Name</label>
+          <p class="form-text fst-italic m-0">E.g., Noah, Sophie, Mr. Rubber Burner, etc.</p>
+          <input type="text" class="form-control" id="romanticInterest" required />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold m-0">Spice Level</label>
+          <div class="btn-group w-100" role="group">
+            <input type="radio" class="btn-check" name="adultThemed" id="spiceOff" value="false" checked />
+            <label class="btn btn-outline-warning" for="spiceOff">Low</label>
+
+            <input type="radio" class="btn-check" name="adultThemed" id="spiceOn" value="true" />
+            <label class="btn btn-outline-warning" for="spiceOn">High</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Rom-Cominatate</button>
+
+      </form>
+
+    </div>
+
+    <div class="w-100 border rounded bg-warning bg-opacity-10 p-3">
+      <h2>Output</h2>
+      <div id="output"></div>
+    </div>
 
   </div>
 
