@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Rom-Cominatooorrrr</title>
+  </head>
+
+<body>
+
+<main class="container-sm py-5" id="app">
+
+  <header class="text-center mb-5">
+    <h1 class="display-4 mb-3">🎬 Screenplay Generator</h1>
+    <p class="lead text-muted">Create your own Hallmark-style romantic comedy</p>
+  </header>
+
+  <div class="d-flex flex-column gap-3">
+    <h2>Story Settings</h2>
+
+    <form id="storyForm">
+
+      <div>
+        <label for="protagonistName" class="form-label">Protagonist Name</label>
+        <p class="form-text">E.g., Emma, Jack, Kickass Blaster, etc.</p>
+        <input type="text" class="form-control" id="protagonistName" required />
+      </div>
+
+      <div>
+        <label for="setting" class="form-label">Small Town Setting</label>
+        <p class="form-text">E.g., Maplewood, Pinecrest, etc.</p>
+        <input type="text" class="form-control" id="setting" required />
+      </div>
+
+      <div>
+        <label for="season" class="form-label">Season/Time Period</label>
+        <select id="season" class="form-select" required>
+          <option value="">Choose...</option>
+          <option value="Christmas">Christmas</option>
+          <option value="Summer">Summer</option>
+          <option value="Fall">Fall</option>
+          <option value="Spring">Spring</option>
+          <option value="Winter">Winter</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="romanticInterest" class="form-label">Romantic Interest Name</label>
+        <p class="form-text">E.g., Noah, Sophie, Mr. Rubber Burner, etc.</p>
+        <input type="text" class="form-control" id="romanticInterest" required />
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="adultThemed" />
+        <label class="form-check-label" for="adultThemed">Add Spice</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Rom-Cominatate</button>
+
+    </form>
+
+    <div id="output"></div>
+
+  </div>
+
+</main>
+    
+<script type="module" src="/src/main.ts"></script>
+
+</body>
+</html>
