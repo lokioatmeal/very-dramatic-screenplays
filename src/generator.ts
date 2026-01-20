@@ -31,7 +31,6 @@ export function generateScreenplay(input: ScreenplayInput): ScreenplayOutput {
   // Mock screenplay following standard screenplay format
   const content = `${title}
 
-Written by Hallmark AI
 Draft 1.0
 
 FADE IN:
